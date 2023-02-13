@@ -8,24 +8,29 @@ console.log(numeriRandom)
 // Creare alert per mostrare numeri
 alert('Ricorda questi numeri: ' + numeriRandom)
 
-
 let numeriDaRicordare = []
-isRememberNumber(numeriDaRicordare)
-console.log(numeriDaRicordare)
 
 // Assegnare SetTimeout per richiamare la funzione
-setTimeout(isRememberNumber, 3000)
-const numeriCombacianti = []
+setTimeout(function() {
+    isRememberNumber(numeriDaRicordare);
 
-for (let i = 0; i < numeriRandom.length; i++) {
-    for ( let j = 0; j < numeriDaRicordare.length; j++) {
-        if ( numeriRandom[i] === numeriDaRicordare[j]) {
-            numeriCombacianti.push(numeriRandom[i])
+    const numeriCombacianti = []
+
+    for (let i = 0; i < numeriRandom.length; i++) {
+        for ( let j = 0; j < numeriDaRicordare.length; j++) {
+            if ( numeriRandom[i] === numeriDaRicordare[j]) {
+                numeriCombacianti.push(numeriRandom[i])
+            }
         }
     }
-}
 
-console.log(numeriCombacianti)
+    console.log('Hai azzeccato: ' + numeriCombacianti)
+    console.log('Hai azzeccato: ' + numeriCombacianti.length)
+}, 3000);
+
+
+
+
 
 //////////////// FUNZIONI
 
@@ -40,7 +45,8 @@ function isRandomNumber() {
 }
 
 
-function isRememberNumber() {
+function isRememberNumber(numeri) {
+    
     for (let i = 0; i < 5; i++) {
         let numeroDaRicordare
         while (isNaN(numeroDaRicordare)) {
@@ -49,7 +55,8 @@ function isRememberNumber() {
                 alert('Inserisci un numero valido')
             }
         }
-        numeriDaRicordare.push(numeroDaRicordare)
+        numeri.push(numeroDaRicordare)
     }
-    return  numeriDaRicordare
+    console.log(numeri)
 }
+
