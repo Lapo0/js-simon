@@ -1,17 +1,26 @@
+// Richiamare il pulsante
+const play = document.getElementById('play')
+
 // Creare numeri random
-
 let numeriRandom = [];
-
-isRandomNumber(numeriRandom)
-console.log(numeriRandom)
-
-// Creare alert per mostrare numeri
-alert('Ricorda questi numeri: ' + numeriRandom)
 
 // Creare variabile per calcolare 30 secondi
 const sec = isAvailableTime()
 
-// Assegnare SetTimeout per richiamare la funzione
+play.addEventListener('click', function() {
+
+    isRandomNumber(numeriRandom)
+    console.log(numeriRandom)
+
+    // Creare alert per mostrare numeri
+    alert('Ricorda questi numeri: ' + numeriRandom)
+
+})
+
+
+//////////////// FUNZIONI //////////////////////
+
+// Creare SetTimeout per richiamare i prompt dopo 3 secondi 
 setTimeout(function() {
     let randomNumbersPc = numbersToRemeber();
 
@@ -35,11 +44,6 @@ setTimeout(function() {
     }
 
 }, sec);
-
-
-
-
-//////////////// FUNZIONI //////////////////////
 
 function isRandomNumber() {
     while (numeriRandom.length < 5) {
