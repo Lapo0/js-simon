@@ -2,6 +2,33 @@
 
 let numeriRandom = [];
 
+isRandomNumber(numeriRandom)
+console.log(numeriRandom)
+
+// Creare alert per mostrare numeri
+alert('Ricorda questi numeri: ' + numeriRandom)
+
+
+let numeriDaRicordare = []
+isRememberNumber(numeriDaRicordare)
+console.log(numeriDaRicordare)
+
+// Assegnare SetTimeout per richiamare la funzione
+setTimeout(isRememberNumber, 3000)
+const numeriCombacianti = []
+
+for (let i = 0; i < numeriRandom.length; i++) {
+    for ( let j = 0; j < numeriDaRicordare.length; j++) {
+        if ( numeriRandom[i] === numeriDaRicordare[j]) {
+            numeriCombacianti.push(numeriRandom[i])
+        }
+    }
+}
+
+console.log(numeriCombacianti)
+
+//////////////// FUNZIONI
+
 function isRandomNumber() {
     while (numeriRandom.length < 5) {
       let numero = Math.floor(Math.random() * 100) + 1;
@@ -9,29 +36,20 @@ function isRandomNumber() {
         numeriRandom.push(numero);
       }
     }
-    console.log(numeriRandom);
-
     return numeriRandom
 }
 
-isRandomNumber()
 
-// Creare alert per mostrare numeri
-alert('Ricorda questi numeri: ' + numeriRandom)
-
-// Assegnare SetTimeout per richiamare la funzione
-setTimeout(isRememberNumber, 3000)
-
-// Creare funzione per inserire nel promt i numeri
 function isRememberNumber() {
     for (let i = 0; i < 5; i++) {
-        let numeroDaRicordare;
+        let numeroDaRicordare
         while (isNaN(numeroDaRicordare)) {
-            numeroDaRicordare = parseInt(prompt('Scrivi i numeri che ricordi'));
+            numeroDaRicordare = parseInt(prompt('Scrivi i numeri che ricordi'))
             if (isNaN(numeroDaRicordare)) {
-                alert('Inserisci un numero valido');
+                alert('Inserisci un numero valido')
             }
         }
-        console.log(numeroDaRicordare);
+        numeriDaRicordare.push(numeroDaRicordare)
     }
+    return  numeriDaRicordare
 }
