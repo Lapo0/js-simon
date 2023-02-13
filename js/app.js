@@ -1,5 +1,3 @@
-
-
 // Creare numeri random
 
 let numeriRandom = [];
