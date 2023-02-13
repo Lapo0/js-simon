@@ -8,6 +8,8 @@ console.log(numeriRandom)
 // Creare alert per mostrare numeri
 alert('Ricorda questi numeri: ' + numeriRandom)
 
+// Creare variabile per calcolare 30 secondi
+const sec = isAvailableTime()
 
 // Assegnare SetTimeout per richiamare la funzione
 setTimeout(function() {
@@ -15,19 +17,30 @@ setTimeout(function() {
 
     const numeriCombacianti = []
 
+    let won = false
+
     for (let i = 0; i < numeriRandom.length; i++) {
         for ( let j = 0; j < randomNumbersPc.length; j++) {
             if ( numeriRandom[i] === randomNumbersPc[j]) {
                 numeriCombacianti.push(numeriRandom[i])
-            }
+                won = true
+            } 
         }
     }
+    if (won) {
+        console.log('Hai azzeccato: ' + numeriCombacianti)
+        console.log('Hai azzeccato: ' + numeriCombacianti.length + ' numeri')
+    } else {
+        console.log('Hai perso!')
+    }
 
-    console.log('Hai azzeccato: ' + numeriCombacianti)
-    console.log('Hai azzeccato: ' + numeriCombacianti.length + ' numeri')
-}, 3000);
+}, sec);
 
 
+
+function isAvailableTime() {
+    return 3 * 1000;
+}
 
 //////////////// FUNZIONI //////////////////////
 
